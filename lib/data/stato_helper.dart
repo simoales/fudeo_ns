@@ -4,7 +4,7 @@ import 'stato.dart';
 
 class StatoHelper {
   final List<Stato> stati = [];
-
+  
   Future<List<Stato>> getStati() async {
     final data = await rootBundle.loadString('assets/stati.json');
     final dynamic jsonData = jsonDecode(data);
@@ -13,7 +13,7 @@ class StatoHelper {
     // ignore: avoid_annotating_with_dynamic
     countriesData.forEach((dynamic countryData) {
       final statoMap = countryData as Map<String, dynamic>;
-      //stati.add(Stato.fromMap(statoMap));
+      stati.add(Stato.fromMap(statoMap));
     });
     return stati;
   }

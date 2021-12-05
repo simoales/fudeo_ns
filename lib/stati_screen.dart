@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'data/stato.dart';
 
 class StatiScreen extends StatefulWidget {
-  const StatiScreen({Key? key}) : super(key: key);
+  const StatiScreen({Key key}) : super(key: key);
 
   @override
   _StatiScreenState createState() => _StatiScreenState();
@@ -34,6 +34,7 @@ class _StatiScreenState extends State<StatiScreen> {
           return ListView.builder(
               itemCount: stati.length,
               itemBuilder: (context, index) {
+                var population = formatPopulation(stati[index].population);
                 return ListTile(
                   leading: CircleAvatar(
                     child: Text(stati[index].countryCode),
@@ -42,11 +43,17 @@ class _StatiScreenState extends State<StatiScreen> {
                   title: Text(stati[index].countryName),
                   subtitle: Text('Capitale:  ${stati[index].capital} \n' +
                       'Continente: ${stati[index].continentName}\n' +
-                      'Popolazione: ${stati[index].population}'),
+                      'Popolazione: $population'),
                 );
               });
         },
       ),
     );
+  }
+
+  String formatPopulation(String popolazione) {
+    final format = NumberFormat.compact(locale: 'it-it');
+    final numero = int.parse(popolazione ??= '0');
+    return format.format(numero);
   }
 }

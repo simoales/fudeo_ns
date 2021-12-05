@@ -4,7 +4,6 @@
             "countryCode": "AD",
             "countryName": "Andorra",
             "currencyCode": "EUR",
-            "population": "84000",
             "capital": "Andorra la Vella",
             "continentName": "Europe"
         },
@@ -19,7 +18,6 @@
         {
             "countryCode": "AF",
             "countryName": "Afghanistan",
-            "currencyCode": "AFN",
             "population": "29121286",
             "capital": "Kabul",
             "continentName": "Asia"
